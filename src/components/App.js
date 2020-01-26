@@ -23,7 +23,7 @@ class App extends Component{
             }
         );
     }
-    //render content with error handling
+    //conditional rendering of content with error handling
     renderContent(){
         if (this.state.errorMessage && !this.state.latitude) {
             return <div>Error: {this.state.errorMessage}</div>
