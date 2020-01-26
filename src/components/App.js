@@ -29,7 +29,10 @@ class App extends Component{
             return <div>Error: {this.state.errorMessage}</div>
         }
         if (!this.state.errorMessage && this.state.latitude) {
-            return  ( <TempView currentLatitude={this.state.latitude}/>)
+            return  ( <TempView 
+                            currentLatitude={this.state.latitude}
+                            currentLongitude={this.state.longitude}
+                            />)
         }
         return <div>loading...</div>
 
