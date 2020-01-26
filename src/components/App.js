@@ -38,7 +38,7 @@ class App extends Component{
                             currentLongitude={this.state.longitude}
                             />)
             }
-            if (this.state.pathName ==="five day"){
+            if (this.state.pathName === "/five-day"){
                 //return render 5 day component here
             }
 
@@ -53,7 +53,7 @@ class App extends Component{
                 <button onClick={()=>{this.setState({pathName: "/temp"})}}>
                 view current temperature
                 </button>
-                <button onClick={()=>{this.setState({pathName: "five-day"})}}>
+                <button onClick={()=>{this.setState({pathName: "/five-day"})}}>
                 View 5 day
                 </button>
                 
