@@ -1,5 +1,7 @@
 import React, {Component} from "react"
+import { BrowserRouter, Route } from "react-router-dom";
 import TempView from './TempView';
+
 
 class App extends Component{
     constructor(props){
@@ -39,7 +41,19 @@ class App extends Component{
     }
     //necesary for react
     render() {
-      return <div>{this.renderContent()}</div>
+      return (
+            <div>
+                <BrowserRouter>
+                    <div>
+                        <Route 
+                            path="/temp"
+                            render={() => this.renderContent()}
+                           />
+
+                    </div>
+                </BrowserRouter>
+            </div>
+            );
     }
    
 }
