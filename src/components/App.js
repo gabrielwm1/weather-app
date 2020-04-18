@@ -7,7 +7,7 @@ class App extends Component{
     constructor(props){
         super(props)
         //declare state
-        this.state = { latitude: null, longitude: null, errorMessage: ''}
+        this.state = { latitude: null, longitude: null, errorMessage: '', pathName: ''}
         //bind functions
 
         //get a user's current location
@@ -48,7 +48,16 @@ class App extends Component{
         }
         if (!this.state.errorMessage && this.state.latitude) {
             //render Five Day component Here
-            
+            //check for which component to render
+            if (this.state.pathName === "/temp") {
+            return  ( <TempView 
+                            currentLatitude={this.state.latitude}
+                            currentLongitude={this.state.longitude}
+                            />)
+            }
+            if (this.state.pathName === "/five-day"){
+                //return render 5 day component here
+            }
         }
         return <div>loading...</div>
 
@@ -69,7 +78,7 @@ class App extends Component{
                             render={() => this.renderFiveDayContent()}
                            />
 
-                    </div>
+                      </div>
                 </BrowserRouter>
             </div>
             );
