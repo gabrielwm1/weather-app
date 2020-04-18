@@ -53,7 +53,7 @@ class App extends Component{
         return <div>loading...</div>
 
     }
-    }
+
     //necesary for react
     render() {
       return (
@@ -74,6 +74,5 @@ class App extends Component{
             </div>
             );
     }
-   
 }
 export default App;
