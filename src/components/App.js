@@ -26,11 +26,28 @@ class App extends Component{
         );
     }
     //conditional rendering of content with error handling
-    renderContent(){
+    renderTempViewContent(){
         if (this.state.errorMessage && !this.state.latitude) {
             return <div>Error: {this.state.errorMessage}</div>
         }
         if (!this.state.errorMessage && this.state.latitude) {
+            //Render Temp View Component Here
+            <TempView  
+                    currentLatitude={this.state.latitude}
+                    currentLongitude={this.state.longitude}
+                    />
+            
+        }
+        return <div>loading...</div>
+
+    }
+
+    renderFiveDayContent(){
+        if (this.state.errorMessage && !this.state.latitude) {
+            return <div>Error: {this.state.errorMessage}</div>
+        }
+        if (!this.state.errorMessage && this.state.latitude) {
+            //render Five Day component Here
             //check for which component to render
             if (this.state.pathName === "/temp") {
             return  ( <TempView 
@@ -41,34 +58,30 @@ class App extends Component{
             if (this.state.pathName === "/five-day"){
                 //return render 5 day component here
             }
-
         }
         return <div>loading...</div>
 
     }
+
     //necesary for react
     render() {
       return (
             <div>
-                <button onClick={()=>{this.setState({pathName: "/temp"})}}>
-                view current temperature
-                </button>
-                <button onClick={()=>{this.setState({pathName: "/five-day"})}}>
-                View 5 day
-                </button>
-                
-                <BrowserRouter>
+                <BrowserRouter>            
                     <div>
                         <Route 
-                            path={this.state.pathName}
-                            render={() => this.renderContent()}
+                            path={"/temp"}
+                            render={() => this.renderTempViewContent()}
+                           />
+                        <Route 
+                            path={"/five-day"}
+                            render={() => this.renderFiveDayContent()}
                            />
 
-                    </div>
+                      </div>
                 </BrowserRouter>
             </div>
             );
     }
-   
 }
 export default App;
