@@ -1,0 +1,6 @@
+Hello, to test the code, please navigate to http://localhost:3000/temp.
+The routing set up in the applicaiton is intended to start at "/", and then either go to "/temp" or "/five-day" based on the two buttons.
+I see where the issue is (it is inside the render method of App.js) - but this is what I was able to get done within the 3 hours!
+See you all on Friday!
+Thanks,
+Gabe

@@ -8,7 +8,7 @@ class App extends Component {
     //declare state
     this.state = { latitude: null, longitude: null, errorMessage: '' };
     //bind functions
-
+    
     //get a user's current location
     window.navigator.geolocation.getCurrentPosition(
       position => {
@@ -40,7 +40,7 @@ class App extends Component {
     }
     return <div>loading...</div>;
   }
-
+  
   renderFiveDayContent() {
     if (this.state.errorMessage && !this.state.latitude) {
       return <div>Error: {this.state.errorMessage}</div>;
