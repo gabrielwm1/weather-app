@@ -6,9 +6,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     //declare state
-    this.state = { latitude: null, longitude: null, errorMessage: '' };
-    //bind functions
-    
+    this.state = {
+      latitude: null,
+      longitude: null,
+      errorMessage: '',
+      speed: 17,
+    };
     //get a user's current location
     window.navigator.geolocation.getCurrentPosition(
       position => {
@@ -24,6 +27,7 @@ class App extends Component {
       }
     );
   }
+
   //conditional rendering of content with error handling
   renderTempViewContent() {
     if (this.state.errorMessage && !this.state.latitude) {
@@ -55,6 +59,10 @@ class App extends Component {
   render() {
     return (
       <div>
+        {/* <button onclick={this.handleClick}>Sign in with Google</button> */}
+        <h1>{this.renderTempViewContent()}</h1>
+        
+        {/* router functionality not working yet */}
         <BrowserRouter>
           <div>
             <Route path={'/temp'} render={() => this.renderTempViewContent()} />
@@ -68,4 +76,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
